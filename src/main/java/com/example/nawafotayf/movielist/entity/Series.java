@@ -8,28 +8,20 @@ import java.util.Set;
 
 @Entity
 @Table(name = "tb_series")
-public class Series extends Movies{
+public class Series extends Shows{
     private int episodes;
-    private int seasons;
+    private LocalDate start;
+    private LocalDate end;
 
-    public Series(int seasons, String name, String story, int duration, String studios, LocalDate start, LocalDate end, int episodes) {
-        super(name, story, duration, studios, start, end);
+    public Series(int id, String name, String story, double duration, String studios, int seasons, Users users, int episodes, LocalDate start, LocalDate end) {
+        super(id, name, story, duration, studios, seasons, users);
         this.episodes = episodes;
-        this.seasons = seasons;
+        this.start = start;
+        this.end = end;
     }
-
     public Series(){
 
     }
-
-    public int getSeasons() {
-        return seasons;
-    }
-
-    public void setSeasons(int seasons) {
-        this.seasons = seasons;
-    }
-
     public int getEpisodes() {
         return episodes;
     }
@@ -38,25 +30,42 @@ public class Series extends Movies{
         this.episodes = episodes;
     }
 
+    public LocalDate getStart() {
+        return start;
+    }
+
+    public void setStart(LocalDate start) {
+        this.start = start;
+    }
+
+    public LocalDate getEnd() {
+        return end;
+    }
+
+    public void setEnd(LocalDate end) {
+        this.end = end;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Series series = (Series) o;
-        return episodes == series.episodes && seasons == series.seasons;
+        return episodes == series.episodes && Objects.equals(start, series.start) && Objects.equals(end, series.end);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), episodes, seasons);
+        return Objects.hash(super.hashCode(), episodes, start, end);
     }
 
     @Override
     public String toString() {
         return "Series{" +
                 "episodes=" + episodes +
-                ", seasons=" + seasons +
+                ", start=" + start +
+                ", end=" + end +
                 '}';
     }
 }

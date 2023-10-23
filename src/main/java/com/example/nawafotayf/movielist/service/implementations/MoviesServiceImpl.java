@@ -45,12 +45,7 @@ public class MoviesServiceImpl implements MoviesService {
         if(movies.getStudios() != null){
             movieName.setStudios(movies.getStudios());
         }
-        if(movies.getStart() != null){
-            movieName.setStart(movies.getStart());
-        }
-        if(movies.getEnd() != null){
-            movieName.setEnd(movies.getEnd());
-        }
+
         moviesRepository.save(movieName);
         return "movie updated successfully";
     }

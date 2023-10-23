@@ -1,7 +1,6 @@
 package com.example.nawafotayf.movielist.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
@@ -24,11 +23,9 @@ public class Users {
     @NotNull(message = "user need role")
     private Roles roles;
     @OneToMany(mappedBy = "users")
-    private Set<Movies> movies;
+    private Set<Shows> shows;
     @OneToMany(mappedBy = "users")
     private Set<Rating> rating;
-    @OneToMany(mappedBy = "users")
-    private Set<Series> series;
     public Users(String username, String password, LocalDate dob, Roles roles) {
         this.username = username;
         this.password = password;
