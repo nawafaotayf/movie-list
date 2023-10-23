@@ -38,25 +38,17 @@ public class Roles {
         this.name = name;
     }
 
-    public Set<Users> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<Users> users) {
-        this.users = users;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Roles roles = (Roles) o;
-        return id == roles.id && Objects.equals(name, roles.name) && Objects.equals(users, roles.users);
+        return id == roles.id && Objects.equals(name, roles.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, users);
+        return Objects.hash(id, name);
     }
 
     @Override
@@ -64,7 +56,6 @@ public class Roles {
         return "Roles{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", users=" + users +
                 '}';
     }
 }

@@ -2,6 +2,7 @@ package com.example.nawafotayf.movielist.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -17,10 +18,11 @@ public class Users {
     private String username;
     @NotBlank(message = "You need to add password")
     private String password;
-    @NotBlank(message = "You need to add date of birth")
+    @NotNull(message = "You need to add date of birth")
     private LocalDate dob;
     @ManyToOne
     @JoinColumn(name = "role_id")
+    @NotNull(message = "user need role")
     private Roles roles;
     @OneToMany(mappedBy = "users")
     private Set<Movies> movies;
@@ -78,33 +80,17 @@ public class Users {
         this.roles = roles;
     }
 
-    public Set<Movies> getMovies() {
-        return movies;
-    }
-
-    public void setMovies(Set<Movies> movies) {
-        this.movies = movies;
-    }
-
-    public Set<Rating> getRating() {
-        return rating;
-    }
-
-    public void setRating(Set<Rating> rating) {
-        this.rating = rating;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
-        return id == users.id && Objects.equals(username, users.username) && Objects.equals(password, users.password) && Objects.equals(dob, users.dob) && Objects.equals(roles, users.roles) && Objects.equals(movies, users.movies) && Objects.equals(rating, users.rating);
+        return id == users.id && Objects.equals(username, users.username) && Objects.equals(password, users.password) && Objects.equals(dob, users.dob) && Objects.equals(roles, users.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, dob, roles, movies, rating);
+        return Objects.hash(id, username, password, dob, roles);
     }
 
     @Override
@@ -115,8 +101,6 @@ public class Users {
                 ", password='" + password + '\'' +
                 ", dob=" + dob +
                 ", roles=" + roles +
-                ", movies=" + movies +
-                ", rating=" + rating +
                 '}';
     }
 }
