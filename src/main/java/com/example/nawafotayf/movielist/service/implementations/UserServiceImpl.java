@@ -29,7 +29,6 @@ public class UserServiceImpl implements UsersService {
         usersRepository.deleteById(id);
         return "User deleted successfully";
     }
-
     @Override
     public String updateUser(int id, Users users) {
         Users findUsers = usersRepository.findById(id).get();

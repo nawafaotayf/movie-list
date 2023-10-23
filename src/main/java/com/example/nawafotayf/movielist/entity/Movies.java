@@ -1,6 +1,7 @@
 package com.example.nawafotayf.movielist.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -13,6 +14,7 @@ public class Movies {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
+    @Column(unique = true)
     private String name;
     private String story;
     private int duration;
@@ -101,25 +103,17 @@ public class Movies {
         this.users = users;
     }
 
-    public Set<Rating> getRating() {
-        return rating;
-    }
-
-    public void setRating(Set<Rating> rating) {
-        this.rating = rating;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Movies movies = (Movies) o;
-        return Id == movies.Id && duration == movies.duration && Objects.equals(name, movies.name) && Objects.equals(story, movies.story) && Objects.equals(studios, movies.studios) && Objects.equals(start, movies.start) && Objects.equals(end, movies.end) && Objects.equals(users, movies.users) && Objects.equals(rating, movies.rating);
+        return Id == movies.Id && duration == movies.duration && Objects.equals(name, movies.name) && Objects.equals(story, movies.story) && Objects.equals(studios, movies.studios) && Objects.equals(start, movies.start) && Objects.equals(end, movies.end) && Objects.equals(users, movies.users);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, name, story, duration, studios, start, end, users, rating);
+        return Objects.hash(Id, name, story, duration, studios, start, end, users);
     }
 
     @Override
@@ -133,7 +127,6 @@ public class Movies {
                 ", start=" + start +
                 ", end=" + end +
                 ", users=" + users +
-                ", rating=" + rating +
                 '}';
     }
 }

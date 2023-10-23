@@ -17,7 +17,7 @@ public class UserController {
     @Autowired
     private RolesServiceImpl rolesServiceImpl;
 
-    @PostMapping(value = "/movielist/addusers")
+    @PostMapping(value = "/movielist/users/addusers")
     public String addUser(@Valid @RequestBody List<Users> users) {
         return userServiceImpl.addUsers(users);
     }
@@ -27,12 +27,12 @@ public class UserController {
         return userServiceImpl.listAllUsers();
     }
 
-    @DeleteMapping(value = "movielist/deleteuser")
+    @DeleteMapping(value = "movielist/users/deleteuser")
     public String deleteUser(@RequestParam int id) {
         return userServiceImpl.deleteUser(id);
     }
 
-    @PutMapping(value = "movielist/updateuser")
+    @PutMapping(value = "movielist/users/updateuser")
     public String updateUser(@RequestParam int id, @RequestBody Users users) {
         return userServiceImpl.updateUser(id, users);
 
