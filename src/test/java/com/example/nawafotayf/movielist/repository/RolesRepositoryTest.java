@@ -8,12 +8,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class RolesRepositoryTest {
     @Autowired
-    private RolesRepository rolesRepository;
+    RolesRepository rolesRepository;
     @Test
     public void addRoles(){
         Roles roles = new Roles("admin");
-        Roles role = new Roles("user");
-        rolesRepository.save(role);
         rolesRepository.save(roles);
     }
 }

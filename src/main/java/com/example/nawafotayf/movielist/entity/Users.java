@@ -14,9 +14,7 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotBlank(message = "You need to add username")
     private String username;
-    @NotBlank(message = "You need to add password")
     private String password;
     @NotNull(message = "You need to add date of birth")
     private LocalDate dob;
