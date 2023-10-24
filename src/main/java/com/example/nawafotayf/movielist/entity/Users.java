@@ -1,6 +1,8 @@
 package com.example.nawafotayf.movielist.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
@@ -14,6 +16,7 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(unique = true)
+    @NotEmpty(message = "user should have name!")
     private String username;
     private String password;
     @NotNull(message = "You need to add date of birth")
@@ -22,7 +25,7 @@ public class Users {
     @JoinColumn(name = "role_id")
     @NotNull(message = "user need role")
     private Roles roles;
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "users" )
     private Set<Shows> shows;
     @OneToMany(mappedBy = "users")
     private Set<Rating> rating;

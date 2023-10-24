@@ -15,9 +15,8 @@ public class MoviesServiceImpl implements MoviesService {
     @Autowired
     MoviesRepository moviesRepository;
     @Override
-    public String addmovie(List<Movies> movies) {
+    public void addmovie(List<Movies> movies) {
         moviesRepository.saveAll(movies);
-        return "Movie added successfully";
     }
 
     @Override
@@ -25,13 +24,12 @@ public class MoviesServiceImpl implements MoviesService {
         return moviesRepository.findAll();
     }
     @Override
-    public String deleteMovie(String name) {
+    public void deleteMovie(String name) {
         Movies movieName = moviesRepository.findByname(name);
         moviesRepository.delete(movieName);
-        return "Movie deleted successfully";
     }
     @Override
-    public String updateMovie(String name, Movies movies) {
+    public void updateMovie(String name, Movies movies) {
         Movies movieName = moviesRepository.findByname(name);
         if(movies.getName() != null){
             movieName.setName(movies.getName());
@@ -47,7 +45,6 @@ public class MoviesServiceImpl implements MoviesService {
         }
 
         moviesRepository.save(movieName);
-        return "movie updated successfully";
     }
 }
 

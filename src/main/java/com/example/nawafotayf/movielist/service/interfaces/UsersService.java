@@ -9,8 +9,8 @@ import java.util.List;
 
 
 public interface UsersService {
-    public String addUsers(List<Users> users);
+    public void addUsers(List<Users> users);
     public List<Users> listAllUsers();
-    public String deleteUser(int id);
-    public String updateUser(int id, Users users);
+    public void deleteUser(String name);
+    public void updateUser(String name, Users users);
 }

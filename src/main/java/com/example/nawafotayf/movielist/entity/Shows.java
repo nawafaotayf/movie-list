@@ -1,5 +1,6 @@
 package com.example.nawafotayf.movielist.entity;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -8,6 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "tb_shows")
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonPropertyOrder({"id", "name", "story", "duration", "studios","seasons","users"})
 public class Shows {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

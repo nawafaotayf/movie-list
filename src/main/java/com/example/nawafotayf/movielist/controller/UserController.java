@@ -6,6 +6,9 @@ import com.example.nawafotayf.movielist.service.implementations.RolesServiceImpl
 import com.example.nawafotayf.movielist.service.implementations.UserServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,23 +21,45 @@ public class UserController {
     private RolesServiceImpl rolesServiceImpl;
 
     @PostMapping(value = "/movielist/users/addusers")
-    public String addUser(@Valid @RequestBody List<Users> users) {
-        return userServiceImpl.addUsers(users);
+    public ResponseEntity<String> addUser(@Valid @RequestBody List<Users> users) {
+        try{
+        userServiceImpl.addUsers(users);
+        String message = "user added successfully";
+        return ResponseEntity.status(HttpStatus.CREATED).body(message);
+        }
+        catch (Exception e){
+            String message = "user not added\n" + e.getMessage();
+            return ResponseEntity.badRequest().body(message);
+        }
     }
 
     @GetMapping(value = "/movielist/users")
     public List<Users> listAllUsers() {
         return userServiceImpl.listAllUsers();
     }
-
     @DeleteMapping(value = "movielist/users/deleteuser")
-    public String deleteUser(@RequestParam int id) {
-        return userServiceImpl.deleteUser(id);
+    public ResponseEntity<String> deleteUser(@RequestParam String name) {
+        try {
+            userServiceImpl.deleteUser(name);
+            String message = "user deleted";
+            return ResponseEntity.status(HttpStatus.OK).body(message);
+        }
+        catch (Exception e){
+            String message = "user not deleted\n" + e.getMessage();
+            return ResponseEntity.badRequest().body(message);
+        }
     }
 
     @PutMapping(value = "movielist/users/updateuser")
-    public String updateUser(@RequestParam int id, @RequestBody Users users) {
-        return userServiceImpl.updateUser(id, users);
-
+    public ResponseEntity<String> updateUser(@RequestParam String name, @RequestBody Users users) {
+        try{
+            userServiceImpl.updateUser(name, users);
+            String message = "user updated";
+            return ResponseEntity.status(HttpStatus.OK).body(message);
     }
+        catch (Exception e){
+            String message = "user not updated\n" + e.getMessage();
+            return ResponseEntity.badRequest().body(message);
+        }
+}
 }

@@ -5,8 +5,8 @@ import com.example.nawafotayf.movielist.entity.Movies;
 import java.util.List;
 
 public interface MoviesService {
-    public String addmovie(List<Movies> movies);
+    public void addmovie(List<Movies> movies);
     public List<Movies> listAllMovies();
-    public String deleteMovie(String name);
-    public String updateMovie(String name, Movies movies);
+    public void deleteMovie(String name);
+    public void updateMovie(String name, Movies movies);
 }

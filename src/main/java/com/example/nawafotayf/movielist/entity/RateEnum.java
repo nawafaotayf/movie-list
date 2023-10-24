@@ -1,14 +1,15 @@
 package com.example.nawafotayf.movielist.entity;
 
 public enum RateEnum {
-    MASTERPIECE,
-    GREAT,
-    VERYGOOD,
-    GOOD,
-    FINE,
-    AVERAGE,
-    BAD,
-    VERYBAD,
+    WORSTSHOW,
+    APPALLING,
     HORRIBLE,
-    APPALLING
+    VERYBAD,
+    BAD,
+    AVERAGE,
+    FINE,
+    GOOD,
+    VERYGOOD,
+    GREAT,
+    MASTERPIECE
 }

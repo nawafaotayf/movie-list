@@ -14,9 +14,8 @@ public class UserServiceImpl implements UsersService {
     @Autowired
     UsersRepository usersRepository;
     @Override
-    public String addUsers(List<Users> users) {
+    public void addUsers(List<Users> users) {
         usersRepository.saveAll(users);
-        return "Users adding successfully";
     }
 
     @Override
@@ -25,13 +24,13 @@ public class UserServiceImpl implements UsersService {
     }
 
     @Override
-    public String deleteUser(int id) {
-        usersRepository.deleteById(id);
-        return "User deleted successfully";
+    public void deleteUser(String name) {
+        Users users = usersRepository.findByusername(name);
+        usersRepository.delete(users);
     }
     @Override
-    public String updateUser(int id, Users users) {
-        Users findUsers = usersRepository.findById(id).get();
+    public void updateUser(String name, Users users) {
+        Users findUsers = usersRepository.findByusername(name);
         if(users.getUsername() != null){
             findUsers.setUsername(users.getUsername());
         }
@@ -42,7 +41,6 @@ public class UserServiceImpl implements UsersService {
             findUsers.setDob(users.getDob());
         }
         usersRepository.save(findUsers);
-        return "user updated successfully";
     }
 
 }
