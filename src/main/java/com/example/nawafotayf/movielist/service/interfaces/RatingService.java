@@ -5,8 +5,8 @@ import com.example.nawafotayf.movielist.entity.Rating;
 import java.util.List;
 
 public interface RatingService {
-    public String addRating(List<Rating> ratings);
+    public void addRating(List<Rating> ratings);
     public List<Rating> listAllRating();
-    public String deleteRating(int id);
-    public String updateRating(int id, Rating rating);
+    public void deleteRating(int id);
+    public void updateRating(int id, Rating rating);
 }

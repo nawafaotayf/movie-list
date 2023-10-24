@@ -23,7 +23,7 @@ public class Shows {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Users users;
-    @OneToMany(mappedBy = "shows")
+    @OneToMany(mappedBy = "shows" ,cascade = CascadeType.ALL)
     private Set<Rating> rating;
 
     public Shows(int id, String name, String story, double duration, String studios, int seasons, Users users) {

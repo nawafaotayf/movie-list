@@ -12,7 +12,7 @@ public class Roles {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany(mappedBy = "roles")
+    @OneToMany(mappedBy = "roles" ,cascade = CascadeType.ALL)
     private Set<Users> users;
 
     public Roles(String name) {

@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface SeriesService {
 
-    public String addSeries(List<Series> series);
+    public void addSeries(List<Series> series);
     public List<Series> listAllSeries();
-    public String deleteSeries(String name);
-    public String updateSeries(String name, Series series);
+    public void deleteSeries(String name);
+    public void updateSeries(String name, Series series);
 }

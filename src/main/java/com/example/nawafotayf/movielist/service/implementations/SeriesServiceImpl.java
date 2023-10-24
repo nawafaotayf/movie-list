@@ -14,9 +14,8 @@ public class SeriesServiceImpl implements SeriesService {
     SeriesRepository seriesRepository;
 
     @Override
-    public String addSeries(List<Series> series) {
+    public void addSeries(List<Series> series) {
         seriesRepository.saveAll(series);
-        return "Series added Successfully";
     }
 
     @Override
@@ -25,14 +24,13 @@ public class SeriesServiceImpl implements SeriesService {
     }
 
     @Override
-    public String deleteSeries(String name) {
+    public void deleteSeries(String name) {
         Series series = seriesRepository.findByname(name);
         seriesRepository.delete(series);
-        return "deleted successfully";
     }
 
     @Override
-    public String updateSeries(String name, Series series) {
+    public void updateSeries(String name, Series series) {
         Series findSeries = seriesRepository.findByname(name);
         if(series.getName() != null){
             findSeries.setName(series.getName());
@@ -60,7 +58,6 @@ public class SeriesServiceImpl implements SeriesService {
         }
         seriesRepository.save(findSeries);
 
-        return "Series updated successfully";
     }
 
 }

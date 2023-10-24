@@ -50,7 +50,7 @@ public class MovieController {
             return ResponseEntity.status(HttpStatus.OK).body(message);
         }
         catch (Exception e){
-            String message = "movie not updated" + e.getMessage();
+            String message = "movie not updated\n" + e.getMessage();
             return ResponseEntity.badRequest().body(message);
         }
     }

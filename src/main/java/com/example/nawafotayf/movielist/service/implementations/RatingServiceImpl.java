@@ -13,9 +13,8 @@ public class RatingServiceImpl implements RatingService {
     @Autowired
     RatingRepository ratingRepository;
     @Override
-    public String addRating(List<Rating> ratings) {
+    public void addRating(List<Rating> ratings) {
         ratingRepository.saveAll(ratings);
-        return "Rating added successfully";
     }
 
     @Override
@@ -24,14 +23,13 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public String deleteRating(int id) {
+    public void deleteRating(int id) {
        Rating rating = ratingRepository.findById(id).get();
        ratingRepository.delete(rating);
-        return "rating delete successfully";
     }
 
     @Override
-    public String updateRating(int id, Rating rating) {
+    public void updateRating(int id, Rating rating) {
         Rating findRating = ratingRepository.findById(id).get();
         if(rating.getRate() != null){
             findRating.setRate(rating.getRate());
@@ -40,6 +38,5 @@ public class RatingServiceImpl implements RatingService {
             findRating.setComment(rating.getComment());
         }
         ratingRepository.save(findRating);
-        return "update successfully";
     }
 }

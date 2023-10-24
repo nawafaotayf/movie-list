@@ -25,9 +25,9 @@ public class Users {
     @JoinColumn(name = "role_id")
     @NotNull(message = "user need role")
     private Roles roles;
-    @OneToMany(mappedBy = "users" )
+    @OneToMany(mappedBy = "users" ,cascade = CascadeType.ALL)
     private Set<Shows> shows;
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "users" ,cascade = CascadeType.ALL)
     private Set<Rating> rating;
     public Users(String username, String password, LocalDate dob, Roles roles) {
         this.username = username;

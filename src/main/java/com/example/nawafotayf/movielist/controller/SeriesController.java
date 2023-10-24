@@ -3,6 +3,8 @@ package com.example.nawafotayf.movielist.controller;
 import com.example.nawafotayf.movielist.entity.Series;
 import com.example.nawafotayf.movielist.service.implementations.SeriesServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,19 +15,42 @@ public class SeriesController {
     SeriesServiceImpl seriesServiceImpl ;
 
     @PostMapping(value = "movielist/series/addseries")
-    public String addSeries(@RequestBody List<Series> series){
-        return seriesServiceImpl.addSeries(series);
+    public ResponseEntity<String> addSeries(@RequestBody List<Series> series){
+        try{
+            seriesServiceImpl.addSeries(series);
+            String message = "series add successfully";
+            return ResponseEntity.status(HttpStatus.OK).body(message);
+        }catch (Exception e){
+            String message = "series not added\n" + e.getMessage();
+            return ResponseEntity.badRequest().body(message);
+        }
     }
     @GetMapping(value = "movielist/series")
     public List<Series> listAllSeries(){
         return seriesServiceImpl.listAllSeries();
     }
     @DeleteMapping(value = "movielist/series/delete")
-    public String deleteSeries(@RequestParam String name){
-        return seriesServiceImpl.deleteSeries(name);
+    public ResponseEntity<String> deleteSeries(@RequestParam String name){
+        try {
+            seriesServiceImpl.deleteSeries(name);
+            String message = "series deleted successfully";
+            return ResponseEntity.status(HttpStatus.OK).body(message);
+        }
+        catch (Exception e){
+            String message = "series not deleted\n" + e.getMessage();
+            return ResponseEntity.badRequest().body(message);
+        }
     }
     @PutMapping(value = "movielist/series/update")
-    public String updateSeries(@RequestParam String name, @RequestBody Series series){
-        return seriesServiceImpl.updateSeries(name, series);
+    public ResponseEntity<String> updateSeries(@RequestParam String name, @RequestBody Series series){
+        try{
+            seriesServiceImpl.updateSeries(name, series);
+            String message = "series updated successfully";
+            return ResponseEntity.status(HttpStatus.OK).body(message);
+        }
+        catch (Exception e){
+            String message = "series not updated\n" + e.getMessage();
+            return ResponseEntity.badRequest().body(message);
+        }
     }
 }
