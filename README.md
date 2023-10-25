@@ -5,7 +5,7 @@
 Movie-List is a web application designed to manage and display a list of movies and series. It allows users to add their own ratings and reviews for each movie or series. The application provides an API for users to navigate through the movie list, also includes a user management system where users can register, login.
 
 ## Class Diagram
-![Class Diagram](SDA_project.drawio.png)
+![Class Diagram](classdiagram.png)
 ## Setup
 
 1. Clone the repository to your local machine.
@@ -59,3 +59,18 @@ Movie-List is a web application designed to manage and display a list of movies 
 - `GET /movielist/rating/allrating`: Retrieve a list of all ratings.
 - `DELETE /movielist/rating/delete?id={id}`: Delete a rating by its ID. Replace `{id}` with the actual rating ID.
 - `PUT /movielist/rating/update?id={id}`: Update a rating's details. Replace `{id}` with the actual rating ID. The request body should include the updated rating details in JSON format.
+## Extra Links
+- [Trello Board](https://trello.com/b/wi9W277q/movie-list)
+## Future Work
+
+In the future, I plan to extend this project in several ways:
+
+1. **Frontend Development:** I plan to develop a frontend for this application using a modern JavaScript framework like React or Vue. This will provide users with a more interactive experience and make it easier to navigate through the movie list.
+
+2. **Integration with External Movie Database API:** I aim to integrate an external movie database API such as The Movie Database (TMDb) or IMDb. This will allow the application to have access to a vast amount of movie data and provide users with more detailed information about each movie or series.
+
+3. **Recommendation System:** I want to implement a recommendation system that suggests movies or series to users based on their viewing history and ratings.
+## Resources
+- [Baeldung Jackson Annotations Guide](https://www.baeldung.com/jackson-annotations)
+- [Query Methods](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods)
+- [Stack OverFlow](https://stackoverflow.com/questions/38403740/authenticate-only-selected-rest-end-points-spring-boot)
