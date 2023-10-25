@@ -7,7 +7,6 @@ import java.util.List;
 
 
 public interface UsersService {
-    public void addUsers(List<Users> users);
     public List<Users> listAllUsers();
     public void deleteUser(String name);
     public void updateUser(String name, Users users);

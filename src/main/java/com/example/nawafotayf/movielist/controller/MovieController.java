@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/movielist/admin")
+
 public class MovieController {
     @Autowired
     MoviesServiceImpl moviesServiceImpl;
-    @GetMapping(value = "/movies")
+    @GetMapping(value = "/movielist/movie/allmovies")
     public List<Movies> movies (){
         return moviesServiceImpl.listAllMovies();
     }
 
-    @PostMapping(value = "/movies/addmovies")
+    @PostMapping(value = "/movielist-admin/movie/addmovies")
     public ResponseEntity<String> addMovie(@RequestBody List<Movies> movies){
         try {
             moviesServiceImpl.addmovie(movies);
@@ -32,7 +32,7 @@ public class MovieController {
         }
     }
 
-    @DeleteMapping(value = "/movies/deletemovie")
+    @DeleteMapping(value = "/movielist-admin/movie/deletemovie")
     public ResponseEntity<String> deleteMovie(@RequestParam String name) {
         try {
             moviesServiceImpl.deleteMovie(name);
@@ -43,7 +43,7 @@ public class MovieController {
             return ResponseEntity.badRequest().body(message);
         }
     }
-    @PutMapping(value = "/movies/updatemovie")
+    @PutMapping(value = "/movielist-admin/movie/updatemovie")
     public ResponseEntity<String> updatemovie(@RequestParam String name, @RequestBody Movies movies){
         try{
             moviesServiceImpl.updateMovie(name, movies);

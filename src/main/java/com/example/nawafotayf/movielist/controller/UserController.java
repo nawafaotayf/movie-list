@@ -12,31 +12,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/movielist/user")
 @NoArgsConstructor
 public class UserController {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    @PostMapping(value = "/movielist/users/addusers")
-    public ResponseEntity<String> addUser(@Valid @RequestBody List<Users> users) {
-        try{
-        userServiceImpl.addUsers(users);
-        String message = "user added successfully";
-        return ResponseEntity.status(
-                HttpStatus.CREATED).body(message);
-        }
-        catch (Exception e){
-            String message = "user not added\n" + e.getMessage();
-            return ResponseEntity.badRequest().body(message);
-        }
-    }
-
-    @GetMapping(value = "/movielist/users")
+    @GetMapping(value = "/movielist-admin/users/allusers")
     public List<Users> listAllUsers() {
         return userServiceImpl.listAllUsers();
     }
-    @DeleteMapping(value = "movielist/users/deleteuser")
+    @DeleteMapping(value = "/movielist-admin/users/deleteuser")
     public ResponseEntity<String> deleteUser(@RequestParam String name) {
         try {
             userServiceImpl.deleteUser(name);
@@ -49,7 +34,7 @@ public class UserController {
         }
     }
 
-    @PutMapping(value = "movielist/users/updateuser")
+    @PutMapping(value = "/movielist-admin/users/updateuser")
     public ResponseEntity<String> updateUser(@RequestParam String name, @RequestBody Users users) {
         try{
             userServiceImpl.updateUser(name, users);

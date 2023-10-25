@@ -14,7 +14,7 @@ public class SeriesController {
     @Autowired
     SeriesServiceImpl seriesServiceImpl ;
 
-    @PostMapping(value = "movielist/series/addseries")
+    @PostMapping(value = "movielist-admin/series/addseries")
     public ResponseEntity<String> addSeries(@RequestBody List<Series> series){
         try{
             seriesServiceImpl.addSeries(series);
@@ -25,11 +25,11 @@ public class SeriesController {
             return ResponseEntity.badRequest().body(message);
         }
     }
-    @GetMapping(value = "movielist/series")
+    @GetMapping(value = "movielist/series/allseries")
     public List<Series> listAllSeries(){
         return seriesServiceImpl.listAllSeries();
     }
-    @DeleteMapping(value = "movielist/series/delete")
+    @DeleteMapping(value = "movielist-admin/series/delete")
     public ResponseEntity<String> deleteSeries(@RequestParam String name){
         try {
             seriesServiceImpl.deleteSeries(name);
@@ -41,7 +41,7 @@ public class SeriesController {
             return ResponseEntity.badRequest().body(message);
         }
     }
-    @PutMapping(value = "movielist/series/update")
+    @PutMapping(value = "movielist-admin/series/update")
     public ResponseEntity<String> updateSeries(@RequestParam String name, @RequestBody Series series){
         try{
             seriesServiceImpl.updateSeries(name, series);

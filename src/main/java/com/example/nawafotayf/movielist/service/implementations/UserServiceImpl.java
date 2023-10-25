@@ -18,10 +18,6 @@ import java.util.Optional;
 public class UserServiceImpl implements UsersService {
     @Autowired
     UsersRepository usersRepository;
-    @Override
-    public void addUsers(List<Users> users) {
-        usersRepository.saveAll(users);
-    }
 
     @Override
     public List<Users> listAllUsers() {
