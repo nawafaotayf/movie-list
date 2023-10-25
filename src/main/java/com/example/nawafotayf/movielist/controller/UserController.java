@@ -1,31 +1,30 @@
 package com.example.nawafotayf.movielist.controller;
 
-import com.example.nawafotayf.movielist.entity.Roles;
 import com.example.nawafotayf.movielist.entity.Users;
-import com.example.nawafotayf.movielist.service.implementations.RolesServiceImpl;
 import com.example.nawafotayf.movielist.service.implementations.UserServiceImpl;
 import jakarta.validation.Valid;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "/movielist/user")
+@NoArgsConstructor
 public class UserController {
     @Autowired
     private UserServiceImpl userServiceImpl;
-    @Autowired
-    private RolesServiceImpl rolesServiceImpl;
 
     @PostMapping(value = "/movielist/users/addusers")
     public ResponseEntity<String> addUser(@Valid @RequestBody List<Users> users) {
         try{
         userServiceImpl.addUsers(users);
         String message = "user added successfully";
-        return ResponseEntity.status(HttpStatus.CREATED).body(message);
+        return ResponseEntity.status(
+                HttpStatus.CREATED).body(message);
         }
         catch (Exception e){
             String message = "user not added\n" + e.getMessage();

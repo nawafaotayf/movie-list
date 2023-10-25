@@ -32,7 +32,7 @@ public class MoviesServiceImpl implements MoviesService {
     public void updateMovie(String name, Movies movies) {
         Movies movieName = moviesRepository.findByname(name);
         if(movies.getName() != null){
-            movieName.setName(movies.getName());
+            movieName.setName(movies.getName() );
         }
         if(movies.getStory() != null){
             movieName.setStory(movies.getStory());
