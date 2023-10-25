@@ -5,7 +5,7 @@
 Movie-List is a web application designed to manage and display a list of movies and series. It allows users to add their own ratings and reviews for each movie or series. The application provides an API for users to navigate through the movie list, also includes a user management system where users can register, login.
 
 ## Class Diagram
-[SDA project.drawio.png]
+![Class Diagram](SDA_project.drawio.png)
 ## Setup
 
 1. Clone the repository to your local machine.
