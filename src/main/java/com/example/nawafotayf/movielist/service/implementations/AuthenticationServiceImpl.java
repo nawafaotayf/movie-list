@@ -41,6 +41,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         users.setRoles(Roles.USER);
         return usersRepository.save(users);
     }
+
     public JwtAuthenticationRequest signIn(SignInRequest signInRequest){
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 signInRequest.getUsername(), signInRequest.getPassword()));

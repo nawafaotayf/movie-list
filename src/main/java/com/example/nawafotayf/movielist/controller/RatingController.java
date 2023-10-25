@@ -14,7 +14,7 @@ public class RatingController {
     @Autowired
     RatingServiceImpl ratingServiceImpl;
 
-    @PostMapping(value = "movielist/rating/addrating")
+    @PostMapping(value = "/movielist/rating/addrating")
     public ResponseEntity<String> addRating(@RequestBody List<Rating> ratings){
         try{
             ratingServiceImpl.addRating(ratings);
@@ -26,11 +26,11 @@ public class RatingController {
             return ResponseEntity.badRequest().body(message);
         }
     }
-    @GetMapping(value = "movielist/rating")
+    @GetMapping(value = "/movielist/rating/allrating")
     public List<Rating> ratings (){
         return ratingServiceImpl.listAllRating();
     }
-    @DeleteMapping(value = "movielist/rating/delete")
+    @DeleteMapping(value = "/movielist/rating/delete")
     public ResponseEntity<String> deleteRating(@RequestParam int id){
         try {
             ratingServiceImpl.deleteRating(id);
@@ -42,7 +42,7 @@ public class RatingController {
             return ResponseEntity.badRequest().body(message);
         }
     }
-    @PutMapping(value = "movielist/rating/update")
+    @PutMapping(value = "/movielist/rating/update")
     public ResponseEntity<String> updateRating(@RequestParam int id, @RequestBody Rating rating){
         try{
             ratingServiceImpl.updateRating(id, rating);
