@@ -52,5 +52,10 @@ public class SeriesController {
             String message = "series not updated\n" + e.getMessage();
             return ResponseEntity.badRequest().body(message);
         }
+        }
+    @GetMapping(value = "/movielist/series/findbyname")
+    public Series findbyname(@RequestParam String name) {
+        return seriesServiceImpl.findByName(name);
     }
 }
+

@@ -43,7 +43,7 @@ public class MovieController {
             return ResponseEntity.badRequest().body(message);
         }
     }
-    @PutMapping(value = " ")
+    @PutMapping(value = "/movielist-admin/movie/updatemovie")
     public ResponseEntity<String> updatemovie(@RequestParam String name, @RequestBody Movies movies){
         try{
             moviesServiceImpl.updateMovie(name, movies);
@@ -54,6 +54,12 @@ public class MovieController {
             String message = "movie not updated\n" + e.getMessage();
             return ResponseEntity.badRequest().body(message);
         }
+
+        }
+    @GetMapping(value = "/movielist/movie/findbyname")
+    public Movies findbyname(@RequestParam String name){
+        return moviesServiceImpl.findMovieByName(name);
+
     }
 
 

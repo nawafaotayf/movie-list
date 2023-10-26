@@ -10,4 +10,5 @@ public interface SeriesService {
     public List<Series> listAllSeries();
     public void deleteSeries(String name);
     public void updateSeries(String name, Series series);
+    public Series findByName(String name);
 }

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MoviesServiceImpl implements MoviesService {
@@ -45,6 +44,12 @@ public class MoviesServiceImpl implements MoviesService {
         }
 
         moviesRepository.save(movieName);
+    }
+
+    @Override
+    public Movies findMovieByName(String name) {
+        Movies movieName = moviesRepository.findByname(name);
+        return movieName;
     }
 }
 

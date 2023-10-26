@@ -60,4 +60,9 @@ public class SeriesServiceImpl implements SeriesService {
 
     }
 
+    @Override
+    public Series findByName(String name) {
+        return seriesRepository.findByname(name);
+    }
+
 }

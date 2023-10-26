@@ -9,4 +9,5 @@ public interface MoviesService {
     public List<Movies> listAllMovies();
     public void deleteMovie(String name);
     public void updateMovie(String name, Movies movies);
+    public Movies findMovieByName(String name);
 }
