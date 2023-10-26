@@ -61,6 +61,7 @@ Movie-List is a web application designed to manage and display a list of movies 
 - `PUT /movielist/rating/update?id={id}`: Update a rating's details. Replace `{id}` with the actual rating ID. The request body should include the updated rating details in JSON format.
 ## Extra Links
 - [Trello Board](https://trello.com/b/wi9W277q/movie-list)
+- [Presentation](https://docs.google.com/presentation/d/1MAeHkpOcHL-RgdyD2i5E3QJT28XKJNGuchqMLxYpn64/edit?usp=sharing)
 ## Future Work
 
 In the future, I plan to extend this project in several ways:
