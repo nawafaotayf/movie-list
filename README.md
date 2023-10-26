@@ -21,6 +21,7 @@ Movie-List is a web application designed to manage and display a list of movies 
     spring.jpa.show-sql=true
     server.error.include-stacktrace=never
    ```
+4. Import postman file from the project its have all the endpoints
 5. Run the application
    
 ## Technologies Used
@@ -31,7 +32,8 @@ Movie-List is a web application designed to manage and display a list of movies 
 - Postman: For testing the API endpoints.
 
 ## API Endpoints
-
+> **Note**
+> Don't forget import the postman file from the project
 ### Authentication
 
 - `POST /signup`: Register a new user. The request body should include the user's registration details in JSON format.
