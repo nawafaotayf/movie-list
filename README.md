@@ -21,6 +21,7 @@ Movie-List is a web application designed to manage and display a list of movies 
     spring.jpa.show-sql=true
     server.error.include-stacktrace=never
    ```
+4. Import postman file from the project its have all the endpoints
 5. Run the application
    
 ## Technologies Used
@@ -31,7 +32,8 @@ Movie-List is a web application designed to manage and display a list of movies 
 - Postman: For testing the API endpoints.
 
 ## API Endpoints
-
+> **Note**
+> Don't forget import the postman file from the project
 ### Authentication
 
 - `POST /signup`: Register a new user. The request body should include the user's registration details in JSON format.
@@ -61,6 +63,7 @@ Movie-List is a web application designed to manage and display a list of movies 
 - `PUT /movielist/rating/update?id={id}`: Update a rating's details. Replace `{id}` with the actual rating ID. The request body should include the updated rating details in JSON format.
 ## Extra Links
 - [Trello Board](https://trello.com/b/wi9W277q/movie-list)
+- [Presentation](https://docs.google.com/presentation/d/1MAeHkpOcHL-RgdyD2i5E3QJT28XKJNGuchqMLxYpn64/edit?usp=sharing)
 ## Future Work
 
 In the future, I plan to extend this project in several ways:
