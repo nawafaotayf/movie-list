@@ -45,7 +45,7 @@ class MockMVCControllerTest {
     @Test
     public void testListAllrating() throws Exception {
         MvcResult result = mockMvc.perform(get("/movielist/rating/allratin"))
-                .andExpect(status().isOk())
+                .andExpect(status ().isOk())
                 .andExpect(MockMvcResultMatchers.content()
                         .contentType(MediaType.APPLICATION_JSON)).andReturn();
         assertTrue(result.getResponse().getContentAsString().contains("good"));
